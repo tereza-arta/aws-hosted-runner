@@ -6,6 +6,7 @@ on:
 
 env:
   REPO_NAME: ${{ github.event.repository.name }}
+  DEFAULT_PATH: ~/actions-runner/_work/aws-hosted-runner/aws-hosted-runner
 
 jobs:
   Test-aws-runner:
@@ -20,6 +21,11 @@ jobs:
 
       - name: Copy repo in another path
         run: |
-          mkdir ~/${{ env.REPO_NAME }}
+          if [ ! -d "~/${{ env.REPO_NAME }}" ]; then
+            mkdir ~/${{ env.REPO_NAME }}
+          else
+            echo "Specified directory already exists: ~/${{ env.REPO_NAME }}"
+          fi
+        working-directory: ${{ env.DEFAULT_PATH}}
           rsync -avzh --delete . ${{ env.REPO_NAME }}
           
