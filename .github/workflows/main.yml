@@ -4,6 +4,9 @@ on:
   push:
     branches: ["main"]
 
+env:
+  REPO_NAME: ${{ github.event.repository.name }}
+
 jobs:
   Test-aws-runner:
     runs-on: self-hosted
@@ -14,3 +17,9 @@ jobs:
 
       - name: Create file
         run: echo  hello >> file.txt
+
+      - name: Copy repo in another path
+        run: |
+          mkdir ~/${{ env.REPO_NAME }}
+          rsync -avzh --delete . ${{ REPO_NAME }}
+          
