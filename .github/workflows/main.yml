@@ -19,13 +19,16 @@ jobs:
       - name: Create file
         run: echo  hello >> file.txt
 
-      - name: Copy repo in another path
+      - name: Create directory
         run: |
           if [ ! -d "~/${{ env.REPO_NAME }}" ]; then
             mkdir ~/${{ env.REPO_NAME }}
           else
             echo "Specified directory already exists: ~/${{ env.REPO_NAME }}"
           fi
+          
+      - name: Copy repo in another path
+        run: |
           cd ${{ env.GITHUB_WORKSPACE}}
           rsync -avzh --delete . ~/${{ env.REPO_NAME }}
           
