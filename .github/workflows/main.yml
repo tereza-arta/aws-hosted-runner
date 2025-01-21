@@ -1,0 +1,16 @@
+name: Test ec2-hosted runner
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  Test-aws-runner:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create file
+        run: echo  hello >> file.txt
