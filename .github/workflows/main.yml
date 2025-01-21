@@ -21,8 +21,8 @@ jobs:
 
       - name: Create directory
         run: |
-          if [ ! -d "HOME/${{ env.REPO_NAME }}" ]; then
-            mkdir HOME/${{ env.REPO_NAME }}
+          if [ ! -d "$HOME/${{ env.REPO_NAME }}" ]; then
+            mkdir -p "$HOME/${{ env.REPO_NAME }}"
           else
             echo "Specified directory already exists: ~/${{ env.REPO_NAME }}"
           fi
