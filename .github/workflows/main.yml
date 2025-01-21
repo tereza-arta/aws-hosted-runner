@@ -27,5 +27,5 @@ jobs:
             echo "Specified directory already exists: ~/${{ env.REPO_NAME }}"
           fi
         working-directory: ${{ env.DEFAULT_PATH}}
-          rsync -avzh --delete . ${{ env.REPO_NAME }}
+          rsync -avzh --delete . ~/${{ env.REPO_NAME }}
           
