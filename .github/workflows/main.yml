@@ -1,4 +1,4 @@
-name: Test ec2-hosted runnernn
+name: Test ec2-hosted runner
 
 on:
   push:
