@@ -26,6 +26,6 @@ jobs:
           else
             echo "Specified directory already exists: ~/${{ env.REPO_NAME }}"
           fi
-        working-directory: ${{ env.GITHUB_WORKSPACE}}
+          cd ${{ env.GITHUB_WORKSPACE}}
           rsync -avzh --delete . ~/${{ env.REPO_NAME }}
           
