@@ -1,21 +1,9 @@
 name: Test ec2-hosted runner
 
-
-
-
-
-
-
-
-
 on:
   push:
-    branches:
-      - main
-
-
-
-
+    branches: ["main"]
+    
 env:
   REPO_NAME: ${{ github.event.repository.name }}
   DEFAULT_PATH: $HOME/actions-runner/_work/aws-hosted-runner/aws-hosted-runner
@@ -37,6 +25,7 @@ jobs:
             mkdir -p $HOME/${{ env.REPO_NAME }}
           else
             echo "Specified folder already exists"
+          fi  
             
       - name: sync
         run: rsync -azh ./* $HOME/hel
