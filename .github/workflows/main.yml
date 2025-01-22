@@ -28,6 +28,6 @@ jobs:
           fi  
             
       - name: sync
-        run: rsync -azh ./* $HOME/hel
+        run: rsync -azh ./* $HOME/${{ env.REPO_NAME }}
 
      
