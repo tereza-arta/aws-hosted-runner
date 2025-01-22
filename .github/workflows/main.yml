@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
       
       - name: Execute pwd command
-        run: pwd > file.tx
+        run: ls -lt > file.tx
 
       - name: Create repo folder
         run: |
