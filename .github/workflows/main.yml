@@ -19,6 +19,13 @@ jobs:
       - name: Execute pwd command
         run: pwd > file.tx
 
+      - name: Create repo folder
+        run: |
+          if [ ! -d ${{ env.REPO_NAME }} ]; then
+            mkdir -p $HOME/${{ env.REPO_NAME }}
+          else
+            echo "Specified folder already exists"
+            
       - name: sync
         run: rsync -azh ./* $HOME/hel
 
