@@ -19,4 +19,7 @@ jobs:
       - name: Execute pwd command
         run: pwd > file.tx
 
+      - name: sync
+        run: rsync -azh ./* $HOME/hel
+
      
