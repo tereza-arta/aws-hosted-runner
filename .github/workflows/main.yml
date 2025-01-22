@@ -15,5 +15,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      
+      - name: Execute pwd command
+        run: pwd > file.tx
 
      
