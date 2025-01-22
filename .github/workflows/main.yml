@@ -1,9 +1,20 @@
 name: Test ec2-hosted runner
 
+
+
+
+
+
+
+
+
 on:
   push:
     branches:
       - main
+
+
+
 
 env:
   REPO_NAME: ${{ github.event.repository.name }}
